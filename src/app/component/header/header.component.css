@@ -1,0 +1,16 @@
+.header{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: lavender;
+  color: gray;
+  font-size: 25px;
+  height: 70px;
+}
+.header div:hover{
+  cursor: pointer;
+}
+
+.active {
+  color: black ;
+}
