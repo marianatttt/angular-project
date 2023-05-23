@@ -3,21 +3,29 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from "@angular/common/http";
 
 
-import {AppComponent} from "./component/app.component";
-import {UsersComponent} from "./component/users/users.component";
+import { CarsComponent } from './component/cars/cars.component';
+import { CarComponent } from './component/car/car.component';
+import {AppComponent} from "./app.component";
+import {ReactiveFormsModule} from "@angular/forms";
+
 
 
 @NgModule({
   declarations: [
   AppComponent,
-    UsersComponent
+  CarsComponent,
+  CarComponent,
+
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
 
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}
