@@ -1,0 +1,17 @@
+.header{
+height: 70px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 25px;
+  background-color: bisque;
+  color: rgba(0, 0, 0, 0.42);
+}
+
+.header div:hover{
+  cursor: pointer;
+}
+
+.active{
+  color: black;
+}

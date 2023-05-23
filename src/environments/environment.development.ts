@@ -1,3 +1,6 @@
-export const environment = {
-  production: true
+import {IEnvironment} from "../app/interface";
+
+export const environment: IEnvironment = {
+  API :'',
+
 };

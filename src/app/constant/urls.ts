@@ -4,6 +4,7 @@ const {API} = environment;
 
 const users = `${API}/users`
 const posts = `${API}/posts`
+const comments = `${API}/comments`
 
 const urls = {
   users: {
@@ -13,6 +14,10 @@ const urls = {
   posts: {
     posts,
     byId: (id: number): string => `${posts}/${id}`
+  },
+  comments:{
+    comments,
+    byId:(id:number): string => `${comments}/${id}`
   }
 
 }
