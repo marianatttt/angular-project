@@ -12,8 +12,14 @@ export class CarComponent {
   car:ICar
   @Output()
   carForUpdate = new EventEmitter<ICar>()
+  @Output()
+  carForDelete = new EventEmitter<ICar>()
 
   setCarForUpdate():void {
     this.carForUpdate.emit(this.car)
+  }
+
+  setCarForDelete():void {
+    this.carForDelete.emit(this.car)
   }
 }

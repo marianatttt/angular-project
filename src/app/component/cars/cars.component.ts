@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {CarService} from "../../service";
 import {ICar} from "../../interface";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {elementAt} from "rxjs";
 
 @Component({
   selector: 'app-cars',
@@ -12,6 +13,7 @@ export class CarsComponent implements OnInit{
   cars:ICar[];
   form:FormGroup;
   carForUpdate:ICar | null
+
 constructor(private carService: CarService) {
 }
 ngOnInit():void {
@@ -26,9 +28,9 @@ _getCars():void{
 
 _initForm():void{
     this.form = new FormGroup( {
-      brand: new FormControl(null),
-      price:new FormControl(null),
-      year: new FormControl(null)
+      brand: new FormControl(null, [Validators.pattern(/^[a-zA-Zа-яА-яёЁіІїЇ]{1,20}$/)]),
+      price:new FormControl(null, [Validators.min(0), Validators.max(1000000000)]),
+      year: new FormControl(null,[Validators.min(1990), Validators.max(new Date().getFullYear())])
     })
 
 }
@@ -55,5 +57,12 @@ _initForm():void{
         price:car.price,
         year:car.year
       })
+  }
+
+  deleteCarById(id:number):void {
+    this.carService.deleteById(id).subscribe(()=>{
+      this._getCars()
+      console.log("delete")
+    })
   }
 }
